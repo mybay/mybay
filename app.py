@@ -158,15 +158,13 @@ class SearchThread(Thread):
                     <td>{3}</td>
                     <td>{4}</td>
                 </tr>
-            """.format(result.name, result.magnet, filesize.size(result.size), str(result.se), str(result.le))
+            """.format(result.name, result.magnet, filesize.size(result.size), result.se, str(result.le))
 
         html += """
                 </table>
             </body>
         </html>
         """
-
-        # &tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80
 
         # Create temp HTML file
         f = tempfile.NamedTemporaryFile(delete=False, suffix='.html')

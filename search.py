@@ -26,10 +26,8 @@ class Search(object):
 
         print 'Performing search (it can take a while)...'
         for line in f:
-            line = line[:-1]
-
             # Split the line
-            m = regex.match(line)
+            m = regex.match(line[:-1])
 
             if not m:
                 continue
@@ -37,16 +35,15 @@ class Search(object):
             parts = m.groups()
 
             name = parts[0]
-            size = int(parts[1])
+            size = parts[1]
 
-            # If there's no hash (happens sometimes),
-            # ignore the result
+            # If there's no hash (happens sometimes), ignore the result
             magnet = parts[2]
             if magnet == '':
                 continue
 
             le = int(parts[5])
-            se = int(parts[6])
+            se = parts[6]
 
             # If there's a search with more than one
             # word, eg. "David Bowie", we should split
