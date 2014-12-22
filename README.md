@@ -4,12 +4,11 @@ It can search the most recent known Pirate Bay dump (magnet link below)
 
 To use it, follow these steps:
 
-1) Download the project (click the ZIP button above)
+1) Download the project [here](https://github.com/mybay/mybay/archive/master.zip)
 
 2) Unzip the project somewhere
 
-3) Download the archive. Magnet link:
-   magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06
+3) Download the archive [here](magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06)
 
 4) Unzip the archive to the same folder as this file. You should see a file
    called "torrents_mini.csv". MYBAY WON'T WORK WITHOUT THIS FILE.
