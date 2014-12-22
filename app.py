@@ -50,7 +50,7 @@ class SearchThread(Thread):
         html = """
         <html>
             <head>
-                <title>Search results for "{0}"</title>
+                <title>MyBay - Search results for "{0}"</title>
                 <style>
 
                 h1 {{
@@ -214,7 +214,7 @@ class App:
 
 
 root = Tk()
-root.title('Magnet Archive Viewer')
+root.title('MyBay')
 app = App(root)
 
 # If on Mac OS, bring the window to top

@@ -18,8 +18,8 @@ How to Use
 4. Unzip the archive and put it in the same folder where you unzipped MyBay.
    You should see a file called "torrents_mini.csv". MYBAY WON'T WORK WITHOUT THIS FILE.
 
-5. Make sure you have Python 2.7 installed. If you have a Mac or Linux it
-   should already be available.
+5. Make sure you have Python 2.7.* installed. If you have a Mac or Linux it
+   should already be available. You can download it [here](https://www.python.org/downloads/)
 
 6. Run the MyBay script (mybay.command on a Mac or mybay.cmd on Windows).
 
