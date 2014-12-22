@@ -158,7 +158,7 @@ class SearchThread(Thread):
                     <td>{3}</td>
                     <td>{4}</td>
                 </tr>
-            """.format(result.name, result.magnet, filesize.size(result.size), result.se, str(result.le))
+            """.format(result.name, result.magnet, filesize.size(result.size), str(result.se), str(result.le))
 
         html += """
                 </table>
