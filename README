@@ -1,7 +1,6 @@
 Hi! MyBay is a cross-platform local Pirate Bay "website".
 
-It can open and search [the most recent known Pirate Bay dump](magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06)
-(i haven't tested this code on other archives):
+It can search the most recent known Pirate Bay dump (magnet link below)
 
 To use it, follow these steps:
 
@@ -9,7 +8,8 @@ To use it, follow these steps:
 
 2) Unzip the project somewhere
 
-3) Download the archive: [here]([the most recent known Pirate Bay dump](magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06))
+3) Download the archive. Magnet link:
+   magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06
 
 4) Unzip the archive to the same folder as this file. You should see a file
    called "torrents_mini.csv". MYBAY WON'T WORK WITHOUT THIS FILE.
@@ -24,4 +24,3 @@ To use it, follow these steps:
    to appear, as the dump file is really large.
 
 Have fun!
-Michael
