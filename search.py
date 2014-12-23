@@ -41,7 +41,7 @@ def search(search_terms):
     for term in filtered_terms:
         sql += ''' AND m.name LIKE '%{0}%' '''.format(term)
 
-    sql += ''' ORDER BY leechers DESC '''
+    sql += ''' ORDER BY seeders DESC '''
 
     cursor.execute(sql)
 
