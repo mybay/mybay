@@ -19,7 +19,8 @@ def extract_csv_file():
         exit()
 
     with gzip.open(settings.GZIP_FILE_NAME, 'rb') as in_f, open(settings.BROKEN_CSV_FILE_NAME, 'wb') as out_f:
-        out_f.write(in_f.read())
+        for in_line in in_f:
+            out_f.write(in_line)
 
     log('Done')
 
@@ -28,11 +29,9 @@ def fix_csv_file():
     log('Fixing CSV file...')
 
     # Remove null characters
-    with open(settings.BROKEN_CSV_FILE_NAME, 'rb') as fi:
-        data = fi.read()
-
-    with open(settings.FIXED_CSV_FILE_NAME, 'wb') as fo:
-        fo.write(data.replace('\x00', ''))
+    with open(settings.BROKEN_CSV_FILE_NAME, 'rb') as fi, open(settings.FIXED_CSV_FILE_NAME, 'wb') as fo:
+        for fi_line in fi:
+            fo.write(fi_line.replace('\x00', ''))
 
     log('Done')
 
