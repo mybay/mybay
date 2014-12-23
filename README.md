@@ -1,4 +1,4 @@
-Mybay!
+MyBay!
 ====
 
 MyBay is a cross-platform local Pirate Bay "website".
