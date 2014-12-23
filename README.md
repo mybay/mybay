@@ -3,7 +3,7 @@ MyBay!
 
 MyBay is a cross-platform local Pirate Bay "website".
 
-It can search the most recent known Pirate Bay dump.
+It uses the recent [OpenBay Database Dump](http://openbay.isohunt.to/), generating a local SQLite database and allowing someone to search millions of magnet links using the command line.
 
 How to Use
 ====
