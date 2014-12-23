@@ -22,7 +22,7 @@ How to Use
 
 6. Copy the gz file to the same folder where you unzipped MyBay.
 
-7. Run "python mybay.py generate" to generate the magnet link database (you only need to do this once)
+7. Run "python mybay.py generate" to generate the magnet link database (it will take 5 to 10 minutes, but you only need to do it once)
 
 8. Run "python mybay.py search yify planet apes" (or whatever you want)
 
