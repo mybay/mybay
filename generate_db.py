@@ -18,11 +18,8 @@ def extract_csv_file():
         log(settings.GZIP_FILE_NAME + ' was not found. You must download and copy this file to the current directory')
         exit()
 
-    in_f = gzip.open(settings.GZIP_FILE_NAME, 'rb')
-    out_f = open(settings.BROKEN_CSV_FILE_NAME, 'wb')
-    out_f.write(in_f.read())
-    in_f.close()
-    out_f.close()
+    with gzip.open(settings.GZIP_FILE_NAME, 'rb') as in_f, open(settings.BROKEN_CSV_FILE_NAME, 'wb') as out_f:
+        out_f.write(in_f.read())
 
     log('Done')
 
@@ -31,12 +28,11 @@ def fix_csv_file():
     log('Fixing CSV file...')
 
     # Remove null characters
-    fi = open(settings.BROKEN_CSV_FILE_NAME, 'rb')
-    data = fi.read()
-    fi.close()
-    fo = open(settings.FIXED_CSV_FILE_NAME, 'wb')
-    fo.write(data.replace('\x00', ''))
-    fo.close()
+    with open(settings.BROKEN_CSV_FILE_NAME, 'rb') as fi:
+        data = fi.read()
+
+    with open(settings.FIXED_CSV_FILE_NAME, 'wb') as fo:
+        fo.write(data.replace('\x00', ''))
 
     log('Done')
 
