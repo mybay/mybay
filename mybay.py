@@ -165,7 +165,7 @@ if sys.argv[1] == 'generate':
 
     log('Generating a new database...')
 
-    if sys.argv[2]:
+    if len(sys.argv) == 3:
         generate_db.run(sys.argv[2])
     else:
         generate_db.run()
