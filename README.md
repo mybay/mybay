@@ -20,7 +20,7 @@ How to Use
      magnet:?xt=urn:btih:B3BCB8BD8B20DEC7A30FD9EC43CE7AFAAF631E06
    - Torrent file link [here](http://openbay.isohunt.to/files/openbay-db-dump.torrent)
 
-6. Copy the gz file to the same folder where you unzipped MyBay.
+6. Copy the torrents_mini.csv.gz file to the same folder where you unzipped MyBay.
 
 7. Open you Terminal, cmd, etc, and cd to the directory where you unzipped MyBay
 
