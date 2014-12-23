@@ -1,4 +1,8 @@
-import re
+# -*- coding: utf-8 -*-
+
+import sqlite3
+import settings
+
 
 # A search result
 class Result(object):
@@ -11,64 +15,34 @@ class Result(object):
         self.le = le
 
 
-class Search(object):
-    def __init__(self, file_name):
-        self.file_name = file_name
+def search(search_terms):
+    global filtered_terms
+    global result_list
 
-    def search(self, search_terms):
-        # Compile regex
-        regex = re.compile('"(.+)"\|([0-9]*)\|(\w+)\|([0-9])\|(\w+)\|([0-9]*)\|([0-9]*)')
+    result_list = []
 
-        # Open database
-        f = open(self.file_name, 'r')
+    # Remove all terms with two or less characters, and lowercase everything
+    filtered_terms = [t.lower() for t in search_terms if len(t) > 2]
 
-        result_list = []
+    print 'Performing search (it can take a while)...'
 
-        print 'Performing search (it can take a while)...'
-        for line in f:
-            line = line[:-1]
+    if not len(filtered_terms):
+        return []
 
-            # Split the line
-            m = regex.match(line)
+    conn = sqlite3.connect(settings.DATABASE_FILE_NAME)
+    cursor = conn.cursor()
 
-            if not m:
-                continue
+    sql = '''
+        SELECT m.name, m.magnet, m.size, c.name, m.seeders, m.leechers
+        FROM magnet m, category c
+        WHERE m.category_id = c.id
+    '''
 
-            parts = m.groups()
+    for term in filtered_terms:
+        sql += ''' AND m.name LIKE '%{0}%' '''.format(term)
 
-            name = parts[0]
-            size = int(parts[1])
+    sql += ''' ORDER BY leechers DESC '''
 
-            # If there's no hash (happens sometimes),
-            # ignore the result
-            magnet = parts[2]
-            if magnet == '':
-                continue
+    cursor.execute(sql)
 
-            le = int(parts[5])
-            se = int(parts[6])
-
-            # If there's a search with more than one
-            # word, eg. "David Bowie", we should split
-            # "David" and "Bowie" and search for both
-            # terms anywhere in the name
-            all_terms = search_terms.lower().split(' ')
-            filtered_terms = [t for t in all_terms if len(t) > 2]
-
-            # Lowercase everything
-            name_lower = name.lower()
-
-            # If all the terms are in the name, add the result
-            # to the result list
-            if all(t in name_lower for t in filtered_terms):
-                result_list.append(Result(name, magnet, size, se, le))
-
-        f.close()
-
-        print 'Done!'
-
-        print 'Sorting by leecher count...'
-        result_list.sort(key=lambda r: r.le, reverse=True)
-        print 'Done!'
-
-        return result_list
+    return cursor.fetchall()

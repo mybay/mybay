@@ -38,6 +38,10 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Magnet database
+# Data
 torrents_mini.csv
 torrents_mini.csv.gz
+mybay.db
+mybay.db-journal
+mybay_broken.csv
+mybay_fixed.csv
