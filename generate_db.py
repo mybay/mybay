@@ -136,4 +136,4 @@ def run(custom_gzip_file_name=None):
     fix_csv_file()
     create_and_populate_database()
     delete_temp_files()
-    log('MyBay is ready! You can delete the %s file if you want' % settings.GZIP_FILE_NAME)
+    log('MyBay is ready! You can delete %s if you want' % settings.GZIP_FILE_NAME)

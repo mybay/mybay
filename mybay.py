@@ -149,7 +149,7 @@ def run(terms):
     results = search.search(terms)
 
     # Create an HTML file and open it in the default browser
-    name = generate_html_file(terms.join(' '), results)
+    name = generate_html_file(' '.join(terms), results)
     webbrowser.open('file://' + name)
 
 
